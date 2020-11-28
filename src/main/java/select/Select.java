@@ -2,10 +2,13 @@ package select;
 
 import sort.Sort;
 
+/**
+ * 选择排序
+ */
 public class Select implements Sort {
 
     @Override
-    public void sort(int[] args) {
+    public int[] sort(int[] args) {
         for (int i = 0; i < args.length; i++) {
             int minIndex = i;
             for (int j = i; j < args.length -1; j++) {
@@ -17,5 +20,6 @@ public class Select implements Sort {
             args[minIndex] = args[i];
             args[i] = temp;
         }
+        return args;
     }
 }

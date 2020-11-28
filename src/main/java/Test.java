@@ -1,15 +1,38 @@
 import bubble.Bubble;
+import bucket.Bucket;
+import count.Count;
+import heap.Heap;
+import insert.Insert;
+import merge.Merge;
+import quick.Quick;
+import radix.Radix;
 import select.Select;
+import shell.ShellInsert;
 import sort.Sort;
 
 import java.util.Random;
 
 public class Test {
 
+
+    /**
+     * Count最快
+     * count-quick-radix
+     * @param args
+     */
+
     public static void main(String[] args) {
-        int[] argv = getData(1000000);
+        int[] argv = getData(10000000);
        // sort(Bubble.class.getSimpleName(), new Bubble(), argv);
-        sort(Select.class.getSimpleName(), new Select(), argv);
+        //sort(Select.class.getSimpleName(), new Select(), argv);
+        //sort(Insert.class.getSimpleName(), new Insert(), argv);
+        sort(ShellInsert.class.getSimpleName(), new ShellInsert(), argv);
+        sort(Merge.class.getSimpleName(), new Merge(), argv);
+        sort(Quick.class.getSimpleName(), new Quick(), argv);
+        sort(Heap.class.getSimpleName(), new Heap(), argv);
+        sort(Count.class.getSimpleName(), new Count(),argv);
+        sort(Bucket.class.getSimpleName(), new Bucket(), argv);
+        sort(Radix.class.getSimpleName(), new Radix(), argv);
     }
 
     private static void sort(String name, Sort sort, int[] args) {
@@ -42,7 +65,7 @@ public class Test {
             int[] argv = copy(args);
             System.out.println("--------start---------"+getName()+"---------");
             long start = System.currentTimeMillis();
-            sort.sort(argv);
+            argv = sort.sort(argv);
             long i = System.currentTimeMillis() - start;
             System.out.println("---------end: "+i+"------"+getName()+"---------");
             //println(argv);

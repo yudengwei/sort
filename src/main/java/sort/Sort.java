@@ -2,5 +2,5 @@ package sort;
 
 public interface Sort {
 
-    void sort(int[] args);
+    int[] sort(int[] args);
 }
